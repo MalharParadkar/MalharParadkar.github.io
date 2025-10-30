@@ -17,6 +17,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="theme-toggle" title="Toggle dark mode">🌓</button>
     </nav>
   </header>
 
@@ -82,5 +83,19 @@
   <footer>
     <p>© 2025 Malhar Chetan Paradkar | Designed with HTML & CSS</p>
   </footer>
+  <script>
+  const toggle = document.getElementById('theme-toggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    // Store user preference
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Load stored theme on page load
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+</script>
 </body>
 </html>
